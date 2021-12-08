@@ -1,0 +1,64 @@
+----------Git y Github----------
+
+-> Descargar  
+* Primero buscar git en el navegador y descargar segun el sistema operativo que tengamos
+* Marcar las opciones git bash here y git GUI here
+* Abrir un cmd y ejecutar el comando "git --version"
+
+
+-----Iniciando en GIT------
+* Todo comando en git debe iniciar por la palabra "git"
+
+-> git help: Despliega un listado de comandos de git con su respectiva descripción.
+-> clear: Limpia la consola, la deja como cuando abrimos git sobre una carpeta.
+
+------Configuraciones iniciales------
+
+-> git config --global user.name "ALIAS": Esto nos permite registrar el usuario que va a hacer los cambios en la carpeta
+-> git config --global user.email "CORREO": Esto nos permite registrar el correo que va a hacer los cambios en la carpeta
+-> git config --global -e: Este comando nos permite ver la configuración que quedo guardada en USER.NAME y USER.EMAIL
+->Para salir del paso "git config --global -e", primero pulsamos ESCAPE luego dos puntos " : ", la letra Qy por último enter
+
+
+------Iniciar un proyecto con git--------
+-> git init: Comando utilizado para iniciar un repositorio (proyecto) en git.
+-> git status: Comando utilizado para verificar a que archivos se les esta haciendo seguimiento (ya han sido agregado al proyecto)
+-> git add . : Comando utilizado para hacerle seguimiento a TODOS los archivos del repositorio en git (agregarlos al repositorio (proyecto)).
+-> git commit -m "descripción": Para regitrar una primera versión del proyecto (Guardarla).
+-> git checkout -- . : Dado el caso de que por alguna razón borremos algun linea de código en nuestro proyecto, y ya hemos registrado un commit, podemos restablecer la linea de código utilizando este comando.
+
+--------Modificaciones de archivos y más------------
+-> "git add ." o "git add NOMBREARCHIVO": Siempre que se hagan cambios a un archivos se debera ejecutar nuevamente este comando
+-> git status: Una vez hecho esto esto debemos volver a verificar si han sido agregados los nuevos cambios al proyecto a través del comando git status.
+-> git log: Nos muestra todos los commit que han sido creados.
+-> git status -s: Esta es una versión más simple del "git status"
+
+
+-------Comandos de GIT status alternos---------
+-> git status: Nos permite ver cuando un archivo ha sido modificado o ha sido creado por primera vez
+-> git status -s: Esta es una versión más simple del "git status" donde la A es agredados, M es modificados, D eliminados, y ?? para los recien creados.
+-> git status -s -b: Esta es una versión más simple del "git status" donde la M es modificados, D eliminados, y ?? para los recien creados, además también nos dice la rama sobre la que estamos.
+
+
+-------Agregando y quitando archivos del stage area------------
+-> "git add ." o "git add NOMBREARCHIVO": Siempre que se hagan cambios a un archivos se debera ejecutar nuevamente este comando
+-> git reset HEAD . : para quitarlos a todos del stage area (status)
+-> git reset HEAD nombrearchivo: para quitar un archivo especifico del stage area.
+-> git add *.extension : de esta manera agregamos todos los archivos que tengan una extensión especifica.
+
+
+---------Hacer commits----------
+-> git commit -m "message": De esta manera agregamos un commit comunmente
+-> git commit: Esto nos llevara a otra visualización (nada raro) en la que si presionamos "a" nos permitira escribir el mensaje del commit y luego dando ESCAPE + " :wq " (nos permitira guadar el commit y salir del lugar a donde nos llevo.
+
+
+
+---------Cómo etiquetar nuestros commits-------
+-> Utilizadas para marcar versiones de un proyecto ( ejemplo cuando ya tienes una version lista para lanzar al mercado
+-> al último commit sobre el que te encuentras puedes marcarlo como una versión de tu proyecto.
+-> git tag v1.0.0 <- aqui va la versión del proyecto, de esta manera se la asigna una versión al proyecto.
+-> Para ver las versiones del proyecto que ya tienes disponibles ejecutar el comando "git tag".
+-> git tag -d NOMBREVERSION: Para eliminar una etiquetad
+-> git tag -a v1.0.0 -m "message": Para agregar la version y un mensaje con respecto a la versión 
+
+
