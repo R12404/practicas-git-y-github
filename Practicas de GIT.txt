@@ -49,16 +49,32 @@
 
 ---------Hacer commits----------
 -> git commit -m "message": De esta manera agregamos un commit comunmente
--> git commit: Esto nos llevara a otra visualización (nada raro) en la que si presionamos "a" nos permitira escribir el mensaje del commit y luego dando ESCAPE + " :wq " (nos permitira guadar el commit y salir del lugar a donde nos llevo.
+-> git commit: Esto nos llevara a otra visualización (nada raro) en la que si presionamos "a" nos permitira escribir el mensaje del commit y luego dando ESCAPE + " :wq ", nos permitira guadar el commit y salir del lugar a donde nos llevo.
 
 
 
 ---------Cómo etiquetar nuestros commits-------
--> Utilizadas para marcar versiones de un proyecto ( ejemplo cuando ya tienes una version lista para lanzar al mercado
+-> TAG: Utilizadas para marcar versiones de un proyecto, ejemplo: cuando ya tienes una version lista para lanzar al mercado 
 -> al último commit sobre el que te encuentras puedes marcarlo como una versión de tu proyecto.
 -> git tag v1.0.0 <- aqui va la versión del proyecto, de esta manera se la asigna una versión al proyecto.
 -> Para ver las versiones del proyecto que ya tienes disponibles ejecutar el comando "git tag".
--> git tag -d NOMBREVERSION: Para eliminar una etiquetad
+-> git tag -d NOMBREVERSION: Para eliminar una etiqueta.
 -> git tag -a v1.0.0 -m "message": Para agregar la version y un mensaje con respecto a la versión 
+-> git show NOMBRETAG: Nos muestra toda la información referente al tag.
+-> Para salir del lugar a donde nos llevo, presionamos la letra "q"
 
+----------Poner etiqueta a un commit anterior---------
+-> git log: Para ver todos los commit que se han hecho.
+-> Copiar el id del commit al que queremos.
+-> Presionar letra q para salir.
+-> git tag -a VERSION IDCOMMIT -m "MESSAGE": De esta manera le ponemos una etiqueta al commit que necesitamos.
+
+ 
+---------Comando git log----------------
+-> Sí al ejecutar este comando aparecen dos puntos " : " al final de la terminal, quiere decir que no se esta visualizando todos los commits
+-> Para verlos podemos presionar los botones de arriba y abajo.
+-> git log --oneline: Forma resumida de ver todos los commits que se han realizado, con la diferencia de que solo nos mostrará uno por linea.
+-> git log --oneline --decorate --all --graph: Forma resumida de ver todos los commits que se han realizado a diferencia que este nos mostrara un grafico más completo de la rama master y demás branches creadas.
+-> Podemos crear nuestros propios comandos a través de un alias de la siguiente manera: 
+	git config --global alias.PALABRACLAVE "Comando que queremos resumir a nuestro gusto sin la palabra git"
 
