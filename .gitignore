@@ -1,0 +1,7 @@
+# En cada linea puedo ir escribiendo el nombre del archivo que quiero ignorar
+
+# De esta manera le decimos que ignore todos los archivos que se encuentre dentro de una carpeta llamada img
+img/ 
+
+#De esta manera le decimos que ignore el archivo readme2.md
+readme2.md

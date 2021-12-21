@@ -8,7 +8,6 @@
 
 -----Iniciando en GIT------
 * Todo comando en git debe iniciar por la palabra "git"
-
 -> git help: Despliega un listado de comandos de git con su respectiva descripción.
 -> clear: Limpia la consola, la deja como cuando abrimos git sobre una carpeta.
 
@@ -17,7 +16,7 @@
 -> git config --global user.name "ALIAS": Esto nos permite registrar el usuario que va a hacer los cambios en la carpeta
 -> git config --global user.email "CORREO": Esto nos permite registrar el correo que va a hacer los cambios en la carpeta
 -> git config --global -e: Este comando nos permite ver la configuración que quedo guardada en USER.NAME y USER.EMAIL
-->Para salir del paso "git config --global -e", primero pulsamos ESCAPE luego dos puntos " : ", la letra Qy por último enter
+->Para salir del paso "git config --global -e", primero pulsamos ESCAPE luego dos puntos " : ", la letra Q y por último enter
 
 
 ------Iniciar un proyecto con git--------
@@ -25,7 +24,7 @@
 -> git status: Comando utilizado para verificar a que archivos se les esta haciendo seguimiento (ya han sido agregado al proyecto)
 -> git add . : Comando utilizado para hacerle seguimiento a TODOS los archivos del repositorio en git (agregarlos al repositorio (proyecto)).
 -> git commit -m "descripción": Para regitrar una primera versión del proyecto (Guardarla).
--> git checkout -- . : Dado el caso de que por alguna razón borremos algun linea de código en nuestro proyecto, y ya hemos registrado un commit, podemos restablecer la linea de código utilizando este comando.
+-> git checkout -- . : Dado el caso de que por alguna razón borremos algun linea de código en nuestro proyecto, y ya hemos registrado un commit, podemos restablecer la linea de código utilizando este comando o descartar los cambios una vez sacados del stage area		.
 
 --------Modificaciones de archivos y más------------
 -> "git add ." o "git add NOMBREARCHIVO": Siempre que se hagan cambios a un archivos se debera ejecutar nuevamente este comando
@@ -74,7 +73,55 @@
 -> Sí al ejecutar este comando aparecen dos puntos " : " al final de la terminal, quiere decir que no se esta visualizando todos los commits
 -> Para verlos podemos presionar los botones de arriba y abajo.
 -> git log --oneline: Forma resumida de ver todos los commits que se han realizado, con la diferencia de que solo nos mostrará uno por linea.
--> git log --oneline --decorate --all --graph: Forma resumida de ver todos los commits que se han realizado a diferencia que este nos mostrara un grafico más completo de la rama master y demás branches creadas.
+-> git log --oneline --decorate --all --graph: Forma resumida de ver todos los commits que se han realizado a diferencia que este nos mostrará un grafico (linea de tiempo) de la rama master y demás branches creadas.
 -> Podemos crear nuestros propios comandos a través de un alias de la siguiente manera: 
 	git config --global alias.PALABRACLAVE "Comando que queremos resumir a nuestro gusto sin la palabra git"
 
+--------Viendo las diferencias entre un commit actual y uno anterior----------------
+-> git diff IDCOMMIT: Nos permite ver las diferencias entre el commit actual y uno anterior.
+-> git diff: Podemos usar este comando para averiguar que cambios hemos hecho actualmente si estamos codificando (Funcionará si no hemos agregados los cambios al stage.
+-> git diff --staged: Podemos usar este comando para averiguar que cambios hemos hechos actualmente si estamos codificando (Funcionará si ya hemos agregado los modificaciones al stage.
+-> git checkout -- NOMBREARCHIVO: Para volver a la versión anterior de un archivo.
+
+----------------Corregir errores a un commit que ya ha sido guardado-----------------
+-Caso 1: Nos equivocamos al escribir el mensaje del commit 
+-> git commit --amend -m "NUEVOMENSAJE": Este comando nos ayudará a corregir el error que tuvimos en el mensaje.
+
+-Caso 2: Hemos incluido un archivo que no debía ser parte del commit.
+-> git reset HEAD^ : Este comando borra por completo el commit y nos devuelve a commit anterior, conviertiendolo en el actual, lo que quiere decir que debemos agregar nuevamente los archivos al stage, sacar el que no necesitamos y posteriormente hacer el commit.
+
+
+-----------Cómo podemos movernos en los diferentes commits que hemos realizado---------------
+-> git reset --soft IDCOMMIT: De esta manera viajamos a través del tiempo. El comando no modificará el codigo (Cambiarlo a como se encontraba en el momento en el que se hizo el commit), si no que viajamos al momento en el git toma los cambios (git status para ver de lo que hablo) y dejara los archivos dentro del stage area.
+-> git reset --mixed IDCOMMIT: De esta manera viajamos a través del tiempo. El comando no modificará el codigo (Cambiarlo a como se encontraba en el momento en el que se hizo el commit), si no que viajamos al momento en el git toma los cambios (git status para ver de lo que hablo), pero no dejará los archivos dentro del stage area.
+-> git checkout -- . : Para descartar todos los cambios.
+-> git reset --hard IDCOMMIT: De esta manera viajamos a través del tiempo. El comando modificará el código dejandolo tal cual estaba cuando se hizo el commit proporcionado.
+-> git reflog: Este comando mostrará un resumen de todo lo que hemos hecho desde que se inicializó el repositorio.
+
+
+----------Moviendo, renombrando y eliminando archivos del proyecto desde GIT-----------
+-> git mv readme.md nuevoNombre.md 	: De esta manera podemos cambiar el nombre de un archivo (renombrarlo) desde la consola de GIT
+-> git mv readme.md css/readme.md : De esta manera podemos mover un archivo a una carpeta en el proyecto
+-> git rm nombreArchivo: Para eliminar un archivo del proyecto
+-> git rm nombreCapeta/nombreArchico : Para eliminar un archivo si se encuentra dentro de una carpeta del proyecto
+
+
+---------Ignorando archivos y carpetas en git----------
+Crear el archivo .gitignore
+-> Ver el archivo .gitignore
+-> Obsercacion: No podemos incluir un archivo al gitingore si ya estaba siendo seguido por git antes.
+Para poder incluir un archivo que ya estaba siendo seguido por git al gitignore utilizamos el comando:
+
+git rm --cached nombreArchivo.md
+
+---------Ramas y uniones en git----------
+Una rama es la linea de tiempo en la que nos encontramos. Desde que iniciamos el repositorio hasta este este punto hemos estado sobre una rama llamada "master"
+-> Podemos tener más de una rama, asi podemos realizar cambios que no afecten a la rama principal o "master". Cuando ya tengamos todos los cambios listos podemos unirla a la master.
+-> Son de gran ayuda a probar los cambios ya que solo eliminariamos la rama
+-> Los commits que se hagan en una rama solo pertenecen a esa rama
+
+
+---------Crear una rama----------
+-> git branch nombreRama: Para crear una nueva rama
+-> git branch: Me muestra todas las ramas que se han creado
+-> git checkout nombreRama: Para cambiarnos de rama
