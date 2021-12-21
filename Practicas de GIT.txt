@@ -125,3 +125,4 @@ Una rama es la linea de tiempo en la que nos encontramos. Desde que iniciamos el
 -> git branch nombreRama: Para crear una nueva rama
 -> git branch: Me muestra todas las ramas que se han creado
 -> git checkout nombreRama: Para cambiarnos de rama
+-> git branch -d nombreRama: Para eliminar una rama (Observación primero posicionate sobre la rama master y luego ejecuta el comando- Esto descartara todo lo que commiteaste en la rama a eliminar)
